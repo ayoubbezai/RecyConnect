@@ -4,6 +4,7 @@ import CategoriesSmallCard from "./CategoriesSmallCard";
 import { hoverEffect } from "../../animations";
 import CategoriesSectionCard from "./CategoriesSectionCard";
 import { BrainCircuit, Search, BadgeCheck } from "lucide-react";
+import { motion } from "framer-motion";
 const CategoriesSection = () => {
   const handleGetStartedClick = () => {};
   return (
