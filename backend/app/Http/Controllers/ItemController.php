@@ -116,7 +116,38 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //add an item to sall
+try{
+
+    $data = $request->validate([
+        'title' => 'required|string|max:255',
+        'content' => 'nullable|string',
+        'category' => 'required|string|max:100',
+        'price' => 'required|numeric|min:0',
+        'expiry_date' => 'nullable|date|after:today',
+        'location' => 'required|integer',
+        'status' => 'required|string',
+        'user_id' => 'required|exists:users,id',
+
+    ]);
+
+    Item::create($data);
+
+
+      return response()->json([
+            "success" => true,
+            "message" => "item created successfully",
+            "data" => []
+        ], Response::HTTP_CREATED);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Failed to create the item',
+            'error' => $e->getMessage(),
+        ], Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
+
     }
 
     /**
@@ -125,14 +156,62 @@ class ItemController extends Controller
     public function show(string $id)
     {
         //
-    }
+        try{
+
+                        $item = Item::findOrFail($id);
+   
+
+      return response()->json([
+            "success" => true,
+            "message" => "item fetched successfully",
+            "data" => $item
+        ], Response::HTTP_OK);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Failed to fetched the item',
+            'error' => $e->getMessage(),
+        ], Response::HTTP_INTERNAL_SERVER_ERROR);
+    }}
+    
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        try{
+            $item = Item::findOrFail($id);
+
+    $data = $request->validate([
+        'title' => 'nullable|string|max:255',
+        'content' => 'nullable|string',
+        'category' => 'nullable|string|max:100',
+        'price' => 'nullable|numeric|min:0',
+        'expiry_date' => 'nullable|date|after:today',
+        'location' => 'nullable|integer',
+        'status' => 'nullable|string',
+        'user_id' => 'nullable|exists:users,id',
+
+    ]);
+
+    $item->update($data);
+
+
+      return response()->json([
+            "success" => true,
+            "message" => "item updated successfully",
+            "data" => []
+        ], Response::HTTP_OK);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Failed to updated the item',
+            'error' => $e->getMessage(),
+        ], Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
     }
 
     /**
@@ -141,5 +220,23 @@ class ItemController extends Controller
     public function destroy(string $id)
     {
         //
+          try{
+     $item = Item::findOrFail($id);
+    $item->delete();
+
+
+      return response()->json([
+            "success" => true,
+            "message" => "item deleted successfully",
+            "data" => []
+        ], Response::HTTP_OK);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Failed to deleted the item',
+            'error' => $e->getMessage(),
+        ], Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
     }
 }
