@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+html,
+body {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
+}
+@theme {
+  --font-display: "JetBrains Mono", monospace;
+  --color-background: #ffffff;
+
+  --color-primary: #000000; /* Pure White */
+
+  --color-secondary: #ff9f1c;
+
+  --color-third: #2ec4b6; 
+}
