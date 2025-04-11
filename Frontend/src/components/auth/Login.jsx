@@ -16,27 +16,19 @@ const Login = () => {
 
     try {
       // Send login credentials to the backend using Axios
-      const response = await axios.post("http://your-backend-api.com/login", {
+      const response = await axios.post("http://127.0.0.1:8000/api/login", {
         email,
         password,
       });
 
-      // Handle successful response (e.g., store the JWT token in localStorage)
       console.log("Logged in successfully", response.data);
 
-      // Save the token in localStorage (adjust key name to match your API response)
-      localStorage.setItem("authToken", response.data.token); // Assuming the token is in response.data.token
-
-      // You can redirect the user to another page or perform other actions after login
-      // For example, redirect to the home page after successful login:
-      // window.location.href = "/home"; or use React Router's useNavigate
+      localStorage.setItem("authToken", response.data.token);
 
     } catch (error) {
-      // Handle errors (e.g., invalid credentials)
       console.error("Login failed", error);
-      setErrorMessage("Invalid email or password."); // Show error message
+      setErrorMessage("Invalid email or password."); 
     } finally {
-      // Stop loading after the request is completed
       setLoading(false);
     }
   };
