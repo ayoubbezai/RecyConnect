@@ -15,6 +15,8 @@ import OurItems from "./pages/user/OurItems";
 import Overview from "./pages/user/Overview";
 import Record from "./pages/user/Record";
 import WithSidebar from "./components/layout/WithSideBar";
+import Profile from "./pages/user/Profile";
+import ItemDetails from "./pages/user/ItemDetails";
 
 function Home() {
   return (
@@ -48,9 +50,11 @@ function AppContent() {
         {/* Protected Routes with Sidebar */}
         <Route element={<ProtectedLayout />}>
           <Route path="/items" element={<Items/>} />
+          <Route path="/items/:id" element={<ItemDetails/>} />
           <Route path="/our_items" element={<OurItems />} />
           <Route path="/overview" element={<Overview />} />
           <Route path="/record" element={<Record />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
     </AuthProvider>

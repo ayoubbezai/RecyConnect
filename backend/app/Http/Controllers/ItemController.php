@@ -139,12 +139,12 @@ try{
         'category' => 'required|string|max:100',
         'price' => 'required|numeric|min:0',
         'expiry_date' => 'nullable|date|after:today',
-        'location' => 'required|integer',
+        'location' => 'required|string',
         'status' => 'required|string',
         'pictures' => 'required|string',
-        'user_id' => 'required|exists:users,id',
 
     ]);
+    $data["user_id"] = Auth::user()->id;
 
     Item::create($data);
 
@@ -206,7 +206,7 @@ try{
         'category' => 'nullable|string|max:100',
         'price' => 'nullable|numeric|min:0',
         'expiry_date' => 'nullable|date|after:today',
-        'location' => 'nullable|integer',
+        'location' => 'nullable|string',
         'status' => 'nullable|string',
         'user_id' => 'nullable|exists:users,id',
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useItems from "../../hooks/useItems";
 import { FiSearch, FiDollarSign, FiMapPin, FiTag, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { FaRegCommentDots } from 'react-icons/fa';
@@ -116,7 +116,6 @@ const Items = () => {
                 </div>
             </div>
 
-            {/* Status Indicators */}
             {loading && (
                 <div className="flex justify-center items-center py-8">
                     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2" style={{ borderColor: primaryColor }}></div>
@@ -138,7 +137,6 @@ const Items = () => {
                 </div>
             )}
 
-            {/* Items Grid */}
             {items.length === 0 && !loading ? (
                 <div className="text-center py-12">
                     <svg className="mx-auto h-16 w-16 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: primaryColor }}>
@@ -209,7 +207,7 @@ const Items = () => {
             {items.length > 0 && (
                 <div className="mt-10 flex items-center justify-between border-t pt-6" style={{ borderColor: lightColor }}>
                     <div className="text-sm">
-                        Page <span className="font-medium">{pagination.currentPage}</span> of <span className="font-medium">{pagination.total_pages}</span>
+                        Page <span className="font-medium">{pagination.current_page}</span> of <span className="font-medium">{pagination.total_pages}</span>
                     </div>
                     <div className="flex space-x-2">
                         <button

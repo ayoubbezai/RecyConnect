@@ -8,7 +8,9 @@ import {
     MdPeople,
     MdChat,
     MdOutlineDescription,
-    MdHistory
+    MdHistory,
+    MdAccountCircle
+    
 } from 'react-icons/md';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -18,16 +20,16 @@ const SideBar = () => {
 
     // Color variables
     const primaryColor = '#2EC4B6';
-    const lightColor = '#F5FDFC';  // Much lighter version
-    const accentColor = '#D6F5F2';  // Very subtle accent
-    const textColor = '#1A3A36';   // Darker for better contrast
-
+    const lightColor = '#F5FDFC';
+    const accentColor = '#D6F5F2';
+    const textColor = '#1A3A36';
     const sidebarLinks = [
         { label: 'Overview', icon: <MdDashboard size={20} />, path: '/overview' },
         { label: 'Post List', icon: <MdList size={20} />, path: '/items' },
         { label: 'Our List', icon: <MdPeople size={20} />, path: '/our_items' },
         { label: 'Chat', icon: <MdChat size={20} />, path: '/chat' },
-        { label: 'Record', icon: <MdHistory size={20} />, path: '/record' }
+        { label: 'Record', icon: <MdHistory size={20} />, path: '/record' },
+        { label: 'Profile', icon: <MdAccountCircle size={20} />, path: '/profile' }
     ];
 
     const isActive = (path) => location.pathname === path;

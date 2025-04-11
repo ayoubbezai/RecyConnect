@@ -8,7 +8,7 @@ export const itemsServices = {
     location = "",
     startPrice = "",
     endPrice = "",
-    isYours=false
+    isYours = false
   ) {
     try {
       const queryParams = new URLSearchParams();
@@ -42,4 +42,72 @@ export const itemsServices = {
       };
     }
   },
+
+  async addItem(
+    title,
+    category,
+    price,
+    expiry_date,
+    location,
+    status,
+    content,
+    pictures
+  ) {
+    try {
+      const token = localStorage.getItem("authToken");
+
+      const payload = {
+        title,
+        category,
+        price,
+        expiry_date,
+        location,
+        status,
+        content,
+        pictures,
+      };
+
+      const result = await axios.post(
+        "http://127.0.0.1:8000/api/items",
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      return result?.data;
+    } catch (error) {
+      console.error("Error adding item:", error);
+      return {
+        success: false,
+        message: error.response?.data?.message || error.message,
+        data: null,
+      };
+    }
+  },
+  async getPostDetails(id){
+    try{
+      const token = localStorage.getItem("authToken");
+
+      const result = await axios.get(`http://127.0.0.1:8000/api/items/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return result?.data;
+    }catch(e){
+console.error("Error getting  item:", e);
+return {
+  success: false,
+  message: e.response?.data?.message || e.message,
+  data: null,
 };
+    
+
+  }
+}};
+

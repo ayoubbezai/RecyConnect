@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import useItems from "../../hooks/useItems";
 import { FiSearch, FiDollarSign, FiMapPin, FiTag, FiChevronLeft, FiChevronRight, FiPlus } from 'react-icons/fi';
 import { FaRegCommentDots } from 'react-icons/fa';
@@ -11,22 +11,13 @@ const OurItems = () => {
         loading,
         error,
         setPage,
-        setSearch,
-        setCategory,
-        setLocation,
-        setStartPrice,
-        setEndPrice,
+
         pagination,
     } = useItems(true);
 
     const [isModelOpen,setIsModeOpen] = useState(false);
 
-    // Handlers
-    const handleSearchChange = (e) => setSearch(e.target.value);
-    const handleCategoryChange = (e) => setCategory(e.target.value);
-    const handleLocationChange = (e) => setLocation(e.target.value);
-    const handleStartPriceChange = (e) => setStartPrice(e.target.value);
-    const handleEndPriceChange = (e) => setEndPrice(e.target.value);
+
     const handleNextPage = () => setPage((prevPage) => prevPage + 1);
     const handlePrevPage = () => setPage((prevPage) => prevPage - 1);
 
