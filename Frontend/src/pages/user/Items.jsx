@@ -54,7 +54,7 @@ const Items = () => {
         <div>
             <h1>Items List</h1>
 
-            <div>
+            <div className=' my-3'>
                 <input
                     type="text"
                     onChange={handleSearchChange}
@@ -82,13 +82,10 @@ const Items = () => {
                 />
             </div>
 
-            {/* Loading indicator */}
             {loading && <p>Loading...</p>}
 
-            {/* Error message */}
             {error && <p>Error: {error}</p>}
 
-            {/* Display items */}
             <ul>
                 {items.length === 0 ? (
                     <li>No items found.</li>

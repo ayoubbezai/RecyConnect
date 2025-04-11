@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { hoverEffect } from "../../../animations";
+import { hoverEffect } from "../../animations";
 
 const CategoriesSectionCard = ({ icon, title, description, onClick }) => {
   return (

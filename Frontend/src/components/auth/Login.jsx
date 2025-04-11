@@ -1,12 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios"; // Import Axios
+import Navbar from "../global/Navbar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); 
-  const [loading, setLoading] = useState(false); 
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const nav = useNavigate()
 
@@ -35,6 +36,9 @@ const Login = () => {
   };
 
   return (
+    <>
+      <Navbar />
+
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="bg-white shadow-lg rounded-2xl p-6 sm:p-10 w-full max-w-md text-primary">
         <h2 className="text-3xl font-bold mb-6 text-center">Login</h2>
@@ -74,7 +78,7 @@ const Login = () => {
           <button
             type="submit"
             className="w-full py-2 bg-secondary hover:bg-third text-white font-semibold rounded-lg transition duration-300"
-            disabled={loading} // Disable the button while loading
+            disabled={loading}
           >
             {loading ? "Logging in..." : "Sign In"}
           </button>
@@ -88,6 +92,7 @@ const Login = () => {
         </form>
       </div>
     </div>
+              </>
   );
 };
 

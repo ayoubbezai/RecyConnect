@@ -1,8 +1,7 @@
 import React from "react";
-import { CircleCheck, CircleCheckBig } from "lucide-react";
+import {  CircleCheckBig } from "lucide-react";
 import CategoriesSmallCard from "./CategoriesSmallCard";
-import { motion } from "framer-motion";
-import { hoverEffect } from "../../../animations";
+import { hoverEffect } from "../../animations";
 import CategoriesSectionCard from "./CategoriesSectionCard";
 import { BrainCircuit, Search, BadgeCheck } from "lucide-react";
 const CategoriesSection = () => {

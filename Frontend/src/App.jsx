@@ -3,9 +3,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Navbar from "./components/global/Navbar";
-import HeroSection from "./components/landingPage/heroSection/HeroSection";
-import CategoriesSection from "./components/landingPage/CategoriesSection/CategoriesSection";
+import HeroSection from "./pages/user/HeroSection";
+import CategoriesSection from "./components/landingPage/CategoriesSection";
 import Items from "./pages/user/Items";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
@@ -26,7 +25,6 @@ function AppContent() {
     <>
       <AuthProvider>
 
-        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

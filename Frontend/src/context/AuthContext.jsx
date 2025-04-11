@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
                 },
             });
             setUser(res.data);
-        } catch () {
+        } catch  {
             console.error("Invalid token or session expired");
             logout();
         } finally {
