@@ -35,7 +35,7 @@ class ItemController extends Controller
             ? strtolower($request_query['sort_direction'] ?? 'asc')
             : 'asc';
         
-           $data = Item::query();
+           $data = Item::query()->with("comments");
 
            //search by the title or contant
             if (!empty($request_query['search'])) {
@@ -81,7 +81,7 @@ class ItemController extends Controller
  $response = [
             'success' => true,
             'message' => 'Data fetched successfully',
-            'data' => $paginatedData->items(), 
+            'data' => $paginatedData->items(),
             'pagination' => [
         'total_items' => $paginatedData->total(), // Total number of items
         'items_per_page' => $paginatedData->perPage(), // Items per page
@@ -158,7 +158,7 @@ try{
         //
         try{
 
-                        $item = Item::findOrFail($id);
+$item = Item::with('comments')->findOrFail($id);
    
 
       return response()->json([

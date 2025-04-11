@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Item extends Model
 {
@@ -16,4 +17,10 @@ class Item extends Model
     'user_id',
     'content'
 ];
+
+    public function comments() :HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }
