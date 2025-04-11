@@ -15,7 +15,8 @@ class Item extends Model
     'expiry_date',
     'location',
     'user_id',
-    'content'
+    'content',
+    'pictures'
 ];
 
     public function comments() :HasMany

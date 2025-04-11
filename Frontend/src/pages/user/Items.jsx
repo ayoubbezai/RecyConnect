@@ -3,6 +3,7 @@ import useItems from "../../hooks/useItems";
 import SideBar from '../../components/layout/SideBar';
 
 const className = "p-2 border border-gray-300 rounded-lg w-full md:w-auto focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-xs";
+
 const Items = () => {
     const {
         items,
@@ -26,6 +27,8 @@ const Items = () => {
     const handleNextPage = () => setPage((prevPage) => prevPage + 1);
     const handlePrevPage = () => setPage((prevPage) => prevPage - 1);
 
+    
+
     return (
         <div className='flex'>
             <SideBar />
@@ -35,10 +38,10 @@ const Items = () => {
                 {/* Filters */}
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
                     <input type="text" onChange={handleSearchChange} placeholder="Search items..." className={className} />
-                    <input type="text" onChange={handleCategoryChange} placeholder="Category..."  className={className}/>
-                    <input type="text" onChange={handleLocationChange} placeholder="Location..."  className={className} />
+                    <input type="text" onChange={handleCategoryChange} placeholder="Category..." className={className} />
+                    <input type="text" onChange={handleLocationChange} placeholder="Location..." className={className} />
                     <input type="number" onChange={handleStartPriceChange} placeholder="Start Price..." className={className} />
-                    <input type="number" onChange={handleEndPriceChange} placeholder="End Price..."  className={className} />
+                    <input type="number" onChange={handleEndPriceChange} placeholder="End Price..." className={className} />
                 </div>
 
                 {/* Loading & Error */}
@@ -50,8 +53,14 @@ const Items = () => {
                     {items.length === 0 ? (
                         <li className="text-gray-500">No items found.</li>
                     ) : (
-                        items.map((item) => (
+                        items.map((item, index) => (
                             <li key={item.id} className="border p-4 rounded-lg shadow hover:shadow-md transition">
+                                {/* Using direct image URL */}
+                                    <img
+                                        src={item.pictures}
+                                        alt="Item"
+                                        className="w-full max-w-xs h-52 mb-4 rounded-lg shadow"
+                                    />
                                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                                 <p><span className="font-medium">Category:</span> {item.category}</p>
                                 <p><span className="font-medium">Location:</span> {item.location}</p>

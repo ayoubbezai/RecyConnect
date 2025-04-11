@@ -129,6 +129,7 @@ try{
         'expiry_date' => 'nullable|date|after:today',
         'location' => 'required|integer',
         'status' => 'required|string',
+        'pictures' => 'required|string',
         'user_id' => 'required|exists:users,id',
 
     ]);

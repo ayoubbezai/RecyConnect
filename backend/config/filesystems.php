@@ -31,13 +31,18 @@ return [
 
     'disks' => [
 
-'attachments' => [
-    'driver' => 'local',
-    'root' => storage_path('app/attachments'),
-    'url' => env('APP_URL') . '/storage/attachments',
-    'visibility' => 'public',
-],
-
+    'attachments' => [
+        'driver' => 'local',
+        'root' => storage_path('app/public/attachments'),
+        'url' => env('APP_URL') . '/storage/attachments',
+        'visibility' => 'public',
+    ],
+'public' => [
+        'driver' => 'local',
+        'root' => storage_path('app/public'),
+        'url' => env('APP_URL') . '/storage',
+        'visibility' => 'public',
+    ],
 
         'local' => [
             'driver' => 'local',
@@ -47,14 +52,7 @@ return [
             'report' => false,
         ],
 
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-            'throw' => false,
-            'report' => false,
-        ],
+
 
         's3' => [
             'driver' => 's3',

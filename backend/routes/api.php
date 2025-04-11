@@ -9,6 +9,8 @@ use App\Http\Controllers\LikeController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::get('/attachments/{id}', [AttachmentController::class, 'getAttachments']);
+Route::post('/attachments/{id}', [AttachmentController::class, 'store']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -17,6 +19,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResources(['/items' => ItemController::class,]);
     Route::apiResources(['/comments' => CommentController::class,]);
     Route::put('/like/{id}', [LikeController::class, 'update']);
-    Route::post('/attachments/{id}', [AttachmentController::class, 'store']);
     
 });

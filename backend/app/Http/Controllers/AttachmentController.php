@@ -31,7 +31,7 @@ class AttachmentController extends Controller
 
             $file = $request->file('file');
             $uniqueName = Str::uuid() . '.' . $file->extension();
-            $path = $file->storeAs('attachments', $uniqueName, 'attachments');
+            $path = $file->storeAs('', $uniqueName, 'attachments');
             
 
              $item->attachments()->create([
@@ -60,9 +60,7 @@ class AttachmentController extends Controller
 public function getAttachments(string $id)
 {
     try {
-        // Corrected query - using with() before findOrFail()
-        $item = Item::with(['attachments'])
-            ->findOrFail($id);
+        $item = Item::with(['attachments'])->findOrFail($id);
 
         return response()->json([
             'success' => true,
@@ -75,6 +73,7 @@ public function getAttachments(string $id)
                         'size' => $this->formatBytes($file->size),
                         'uploaded_at' => $file->created_at->format('M d, Y'),
                         'download_url' => url("/api/attachments/{$file->id}/download"),
+                        'preview_url' => asset('storage/' . $file->storage_path),
                         'previewable' => in_array($file->mime_type, [
                             'image/jpeg',
                             'image/png',
@@ -88,10 +87,11 @@ public function getAttachments(string $id)
     } catch (\Exception $e) {
         return response()->json([
             'success' => false,
-            "error" => $e->getMessage(),
+            'error' => $e->getMessage(),
         ], Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 }
+
 
 private function formatBytes($bytes) {
     if ($bytes == 0) return '0 Bytes';
