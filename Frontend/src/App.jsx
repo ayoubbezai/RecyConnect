@@ -5,7 +5,7 @@ import {
   Outlet
 } from "react-router-dom";
 import HeroSection from "./pages/user/HeroSection";
-import CategoriesSection from "./components/landingPage/CategoriesSection";
+import CategoriesSection from "./components/landingPage/categorySection/CategoriesSection";
 import Items from "./pages/user/Items";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
@@ -17,12 +17,19 @@ import Record from "./pages/user/Record";
 import WithSidebar from "./components/layout/WithSideBar";
 import Profile from "./pages/user/Profile";
 import ItemDetails from "./pages/user/ItemDetails";
+import ServicesSection from "./components/landingPage/serviceSection/ServiceSection";
+import ContactUsSection from "./components/landingPage/contactUsSection/ContactUsSection";
+import Footer from "./components/landingPage/footerSection/Footer";
 
 function Home() {
   return (
     <>
       <HeroSection id="heroSection" />
-      <CategoriesSection id="categoriesSection" />
+      <CategoriesSection />
+      <ServicesSection />
+      <ContactUsSection />
+      <Footer />
+      
     </>
   );
 }
@@ -49,8 +56,8 @@ function AppContent() {
 
         {/* Protected Routes with Sidebar */}
         <Route element={<ProtectedLayout />}>
-          <Route path="/items" element={<Items/>} />
-          <Route path="/items/:id" element={<ItemDetails/>} />
+          <Route path="/items" element={<Items />} />
+          <Route path="/items/:id" element={<ItemDetails />} />
           <Route path="/our_items" element={<OurItems />} />
           <Route path="/overview" element={<Overview />} />
           <Route path="/record" element={<Record />} />

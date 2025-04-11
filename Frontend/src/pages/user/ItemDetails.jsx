@@ -122,7 +122,7 @@ const ItemDetails = () => {
 
                 {/* Comments List */}
                 {item.comments && item.comments.length > 0 ? (
-                    <div className="space-y-3">
+                    <div className="space-y-3 max-h-32 overflow-y-auto">
                         {item.comments.map((comment, index) => (
                             <div key={index} className="text-sm p-2 bg-gray-50 rounded">
                                 <p>{typeof comment === 'object' ? comment.content : comment}</p>
