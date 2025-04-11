@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import useItems from "../../hooks/useItems";
-import { FiSearch, FiDollarSign, FiMapPin, FiTag, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiSearch, FiDollarSign, FiMapPin, FiTag, FiChevronLeft, FiChevronRight, FiPlus } from 'react-icons/fi';
 import { FaRegCommentDots } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import AddItemModel from '../../Models/AddItemModel';
 
-const Items = () => {
+const OurItems = () => {
     const {
         items,
         loading,
@@ -16,7 +17,9 @@ const Items = () => {
         setStartPrice,
         setEndPrice,
         pagination,
-    } = useItems();
+    } = useItems(true);
+
+    const [isModelOpen,setIsModeOpen] = useState(false);
 
     // Handlers
     const handleSearchChange = (e) => setSearch(e.target.value);
@@ -34,16 +37,30 @@ const Items = () => {
     const textColor = '#0A3A35';
 
     return (
-        <div className="container mx-auto px-4 py-8" style={{ color: textColor }}>
-            {/* Header */}
-            <div className="mb-8 text-center">
-                <h1 className="text-4xl font-bold mb-2" style={{ color: primaryColor }}>
-                    Discover Items
-                </h1>
-                <p className="opacity-80">Browse through our curated collection</p>
+        <>
+        <div className="container mx-auto px-4  py-8" style={{ color: textColor }}>
+            {/* Header with Add New Post button */}
+            <div className="flex justify-between items-center mb-16">
+                <div className="text-center flex-1">
+                    <h1 className="text-4xl font-bold mb-2" style={{ color: primaryColor }}>
+                        Discover Items
+                    </h1>
+                    <p className="opacity-80">Browse through our curated collection</p>
+                </div>
+                <button
+                    onClick={() => setIsModeOpen(true)}
+                    className="flex items-center justify-center py-2 px-6 rounded-lg transition-all duration-200
+                        bg-[#2EC4B6] text-white font-medium text-sm
+                        hover:bg-[#1D9C92] hover:shadow-md
+                        focus:outline-none focus:ring-2 focus:ring-[#2EC4B6] focus:ring-opacity-50
+                        whitespace-nowrap"
+                >
+                    <FiPlus className="mr-2" />
+                    New Post
+                </button>
             </div>
 
-            {/* Filters */}
+            {/* Filters
             <div className="p-6 rounded-xl mb-8" style={{ backgroundColor: lightColor }}>
                 <h2 className="text-lg font-semibold mb-4 flex items-center">
                     <FiSearch className="mr-2" /> Search Filters
@@ -114,7 +131,7 @@ const Items = () => {
                         />
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Status Indicators */}
             {loading && (
@@ -181,7 +198,6 @@ const Items = () => {
                                     </span>
                                 </div>
 
-                                {/* View Details Button */}
                                 <Link
                                     to={`/items/${item.id}`}
                                     className="w-full flex items-center justify-center py-2 px-4 mb-3 rounded-lg transition-all duration-200
@@ -209,7 +225,7 @@ const Items = () => {
             {items.length > 0 && (
                 <div className="mt-10 flex items-center justify-between border-t pt-6" style={{ borderColor: lightColor }}>
                     <div className="text-sm">
-                        Page <span className="font-medium">{pagination.currentPage}</span> of <span className="font-medium">{pagination.total_pages}</span>
+                            Page <span className="font-medium">{pagination.current_page}</span> of <span className="font-medium">{pagination.total_pages}</span>
                     </div>
                     <div className="flex space-x-2">
                         <button
@@ -232,7 +248,12 @@ const Items = () => {
                 </div>
             )}
         </div>
+        {
+            isModelOpen && <AddItemModel isOpen={isModelOpen} onClose={()=>setIsModeOpen(false)} />
+        }
+
+            </>
     );
 };
 
-export default Items;
+export default OurItems;

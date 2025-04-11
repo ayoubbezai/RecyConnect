@@ -7,7 +7,8 @@ export const itemsServices = {
     category = "",
     location = "",
     startPrice = "",
-    endPrice = ""
+    endPrice = "",
+    isYours=false
   ) {
     try {
       const queryParams = new URLSearchParams();
@@ -18,9 +19,9 @@ export const itemsServices = {
       if (location) queryParams.append("location", location);
       if (startPrice) queryParams.append("startPrice", startPrice);
       if (endPrice) queryParams.append("endPrice", endPrice);
+      if (isYours) queryParams.append("isYours", isYours);
 
       const token = localStorage.getItem("authToken");
-
 
       const result = await axios.get(
         `http://127.0.0.1:8000/api/items?${queryParams.toString()}`,
@@ -30,9 +31,6 @@ export const itemsServices = {
           },
         }
       );
-
-
-      
 
       return result?.data;
     } catch (error) {

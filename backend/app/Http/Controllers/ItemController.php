@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -74,6 +75,17 @@ $data = Item::query()->with(['comments' => function ($query) {
         if ($startPrice && $endPrice) {
     $data->whereBetween('price', [$startPrice, $endPrice]);
         }
+
+
+            // Filter whether to get only the authenticated user's items
+        $isYours = filter_var($request_query['isYours'] ?? false, FILTER_VALIDATE_BOOLEAN);
+        if ($isYours) {
+            $data->where('user_id', Auth::user()->id);
+        }
+
+
+
+
         $data->orderBy($sortBy, $sortDirection);
 
         // Get paginated results
@@ -243,4 +255,9 @@ try{
         ], Response::HTTP_INTERNAL_SERVER_ERROR);
     }
     }
+
+    public function getOurList(){
+
+    }
+
 }

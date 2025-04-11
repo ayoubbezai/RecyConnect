@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { itemsServices } from "../services/itemsServices";
 
-const useItems = () => {
+const useItems = (IsYours) => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -19,7 +19,7 @@ const useItems = () => {
             setLoading(true);
             setError(null);
 
-            const result = await itemsServices.getAllItems(page, search, category, location, startPrice, endPrice);
+            const result = await itemsServices.getAllItems(page, search, category, location, startPrice, endPrice, IsYours);
             console.log(result)
 
             if (result.success) {
@@ -33,7 +33,7 @@ const useItems = () => {
         };
 
         fetchItems();  
-    }, [page, search, category, location, startPrice, endPrice]);  
+    }, [page, search, category, location, startPrice, endPrice,IsYours]);  
 
     return {
         items,
@@ -45,7 +45,7 @@ const useItems = () => {
         setLocation,
         setStartPrice,
         setEndPrice,
-        pagination
+        pagination,
     };
 };
 
