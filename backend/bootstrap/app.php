@@ -2,6 +2,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Routing\Middleware\ThrottleRequests;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -14,9 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->api([
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
                             App\Http\Middleware\CorsMiddleware::class,
+    // ThrottleRequests::class.':api',
 
 
         ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         // Optional: customize error handling

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const itemsServices = {
   async getAllItems(
     page = 1,
@@ -17,16 +19,22 @@ export const itemsServices = {
       if (startPrice) queryParams.append("startPrice", startPrice);
       if (endPrice) queryParams.append("endPrice", endPrice);
 
-      const response = await fetch(
-        `http://127.0.0.1:8000/api/items?${queryParams.toString()}`
-      );
-      console.log(response);
-      if (!response.ok) {
-        throw new Error("Failed to fetch items");
-      }
+      const token = localStorage.getItem("authToken");
 
-      const result = await response.json();
-      return result;
+
+      const result = await axios.get(
+        `http://127.0.0.1:8000/api/items?${queryParams.toString()}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+
+      
+
+      return result?.data;
     } catch (error) {
       console.error("Error fetching items:", error);
       return {

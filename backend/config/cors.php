@@ -17,7 +17,7 @@ return [
 
     'allowed_methods' => ['*'], // Allow all HTTP methods
 
-    'allowed_origins' => ['http://localhost:5173'], // Only allow requests from this origin
+    'allowed_origins' => ['*'], // Only allow requests from this origin
 
     'allowed_origins_patterns' => [],
 
