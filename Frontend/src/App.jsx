@@ -7,7 +7,8 @@ import {
 import Navbar from "./components/global/Navbar";
 import HeroSection from "./components/landingPage/heroSection/HeroSection";
 import CategoriesSection from "./components/landingPage/CategoriesSection/CategoriesSection";
-
+import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
 function Home() {
   return (
     <>
@@ -23,6 +24,8 @@ function AppContent() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </>
   );
