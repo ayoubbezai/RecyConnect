@@ -1,21 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios"; // Import Axios
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // State for handling errors
-  const [loading, setLoading] = useState(false); // State for loading indication
+  const [errorMessage, setErrorMessage] = useState(""); 
+  const [loading, setLoading] = useState(false); 
+
+  const nav = useNavigate()
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
-    // Start loading before making the request
+
     setLoading(true);
 
     try {
-      // Send login credentials to the backend using Axios
       const response = await axios.post("http://127.0.0.1:8000/api/login", {
         email,
         password,
@@ -24,10 +24,11 @@ const Login = () => {
       console.log("Logged in successfully", response.data);
 
       localStorage.setItem("authToken", response.data.token);
+      nav("/items")
 
     } catch (error) {
       console.error("Login failed", error);
-      setErrorMessage("Invalid email or password."); 
+      setErrorMessage("Invalid email or password.");
     } finally {
       setLoading(false);
     }

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const SignUp = () => {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -15,21 +15,17 @@ const SignUp = () => {
     setLoading(true);
 
     try {
-      // Send signup credentials to the backend using Axios
-      const response = await axios.post("http://your-backend-api.com/signup", {
-        username,
+      const response = await axios.post("http://127.0.0.1:8000/api/register", {
+        name,
         email,
         password,
       });
 
-      // Handle successful response (e.g., store the JWT token in localStorage)
       console.log("User registered successfully", response.data);
 
-      // Save the token in localStorage
       localStorage.setItem("authToken", response.data.token);
 
-      // You can redirect the user to the login page or the home page
-      navigate("/login"); // Or navigate("/home"); depending on your flow
+      navigate("/items");
 
     } catch (error) {
       console.error("Signup failed", error);
@@ -52,8 +48,8 @@ const SignUp = () => {
               type="text"
               className="w-full px-4 py-2 border border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
               placeholder="your_username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
           </div>

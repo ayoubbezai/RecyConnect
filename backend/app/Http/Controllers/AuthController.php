@@ -25,8 +25,8 @@ class AuthController extends Controller
                 "name" => $data["name"],
                 "email" => $data["email"],
                 "password" => $data["password"],
-                "role" => $data["role"],
             ]);
+                // "role" => $data["role"]?$data["role"]:"user",
 
             // Generate a token for the user
             $token = $user->createToken("auth_token")->plainTextToken;

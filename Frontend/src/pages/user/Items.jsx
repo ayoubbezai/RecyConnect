@@ -54,7 +54,6 @@ const Items = () => {
         <div>
             <h1>Items List</h1>
 
-            {/* Filters */}
             <div>
                 <input
                     type="text"
