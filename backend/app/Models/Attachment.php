@@ -8,15 +8,15 @@ class Attachment extends Model
 {
     //
     protected $fillable = [
-    'folder_id',
     'title',
     'original_name',
     'storage_path',
     'mime_type',
-    'size'
+    'size',
+    "item_id"
 ];
 
-public function folder()
+public function item()
 {
     return $this->belongsTo(Item::class);
 }

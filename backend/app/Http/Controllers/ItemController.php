@@ -37,7 +37,8 @@ class ItemController extends Controller
         
 $data = Item::query()->with(['comments' => function ($query) {
     $query->latest()->limit(10);
-}]);
+},"attachments"]);
+
            //search by the title or contant
             if (!empty($request_query['search'])) {
             $search = $request_query['search'];
@@ -63,7 +64,7 @@ $data = Item::query()->with(['comments' => function ($query) {
 
                     }
 
-                    //filter by price 
+                    //filter by price
         $startPrice = $request_query['startPrice'] ?? null;
         $endPrice = $request_query['endPrice'] ?? null;
         if ($startPrice > $endPrice) {

@@ -28,7 +28,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
-            path="/items"
+            path="/posts"
             element={
               <ProtectedRoute>
                 <Items />

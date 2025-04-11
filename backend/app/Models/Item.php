@@ -24,7 +24,7 @@ class Item extends Model
     }
     public function attachments() :HasMany
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Attachment::class);
     }
 
 

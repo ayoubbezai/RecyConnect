@@ -15,9 +15,11 @@ class AttachmentController extends Controller
 {
     //
 
-        public function store(Request $request, Item $item){
+        public function store(Request $request, String $id){
 
             //validate the attachment
+
+            $item = Item::findOrFail($id);
 
             try{
 
@@ -30,13 +32,15 @@ class AttachmentController extends Controller
             $file = $request->file('file');
             $uniqueName = Str::uuid() . '.' . $file->extension();
             $path = $file->storeAs('attachments', $uniqueName, 'attachments');
+            
 
-            $attachment = $item->attachments()->create([
+             $item->attachments()->create([
                 'title' => $request->title,
                 'original_name' => $file->getClientOriginalName(),
                 'storage_path' => $path,
                 'mime_type' => $file->getMimeType(),
-                'size' => $file->getSize()
+                'size' => $file->getSize(),
+                "item_id"=>$id
             ]);
             
             return response()->json([

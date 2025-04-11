@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttachmentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
@@ -16,5 +17,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResources(['/items' => ItemController::class,]);
     Route::apiResources(['/comments' => CommentController::class,]);
     Route::put('/like/{id}', [LikeController::class, 'update']);
+    Route::post('/attachments/{id}', [AttachmentController::class, 'store']);
     
 });

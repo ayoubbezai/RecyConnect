@@ -14,7 +14,7 @@ return new class extends Migration
 
 Schema::create('attachments', function (Blueprint $table) {
     $table->id();
-    $table->foreignId('folder_id')->constrained()->cascadeOnDelete();
+    $table->foreignId('item_id')->constrained()->cascadeOnDelete();
     $table->string('title'); // added name
     $table->string('original_name'); // Original filename
     $table->string('storage_path'); // Path in storage
