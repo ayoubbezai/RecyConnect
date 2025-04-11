@@ -6,11 +6,13 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/global/Navbar";
 import HeroSection from "./components/landingPage/heroSection/HeroSection";
+import CategoriesSection from "./components/landingPage/CategoriesSection/CategoriesSection";
 
 function Home() {
   return (
     <>
-      <HeroSection id="homeSection" />
+      <HeroSection id="heroSection" />
+      <CategoriesSection id="categoriesSection" />
     </>
   );
 }

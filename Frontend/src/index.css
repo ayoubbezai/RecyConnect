@@ -6,13 +6,46 @@ body {
   width: 100%;
   max-width: 100%;
 }
+
 @theme {
-  --font-display: "JetBrains Mono", monospace;
+  --font-display: "Poppins", sans-serif;
+
   --color-background: #ffffff;
 
-  --color-primary: #000000; /* Pure White */
+  /* Primary (black-based) */
+  --color-primary: #000000;
+  --color-primary-100: #1a1a1a;
+  --color-primary-200: #333333;
+  --color-primary-300: #4d4d4d;
+  --color-primary-400: #666666;
+  --color-primary-500: #808080;
+  --color-primary-600: #999999;
+  --color-primary-700: #b3b3b3;
+  --color-primary-800: #cccccc;
+  --color-primary-900: #e6e6e6;
 
-  --color-secondary: #ff9f1c;
+  /* Secondary (teal-based) */
+  --color-secondary: #2ec4b6;
+  --color-secondary-50: #e0f7f5;
+  --color-secondary-100: #b2ebe7;
+  --color-secondary-200: #80dfd9;
+  --color-secondary-300: #4ed4cb;
+  --color-secondary-400: #3ccdc3;
+  --color-secondary-500: #2ec4b6;
+  --color-secondary-600: #26a99c;
+  --color-secondary-700: #1e8f83;
+  --color-secondary-800: #16746a;
+  --color-secondary-900: #0e5a51;
 
-  --color-third: #2ec4b6; 
+  /* Third (orange-based) */
+  --color-third: #ff9f1c;
+  --color-third-100: #ffe0b2;
+  --color-third-200: #ffcc80;
+  --color-third-300: #ffb74d;
+  --color-third-400: #ffa726;
+  --color-third-500: #ff9f1c;
+  --color-third-600: #fb8c00;
+  --color-third-700: #f57c00;
+  --color-third-800: #ef6c00;
+  --color-third-900: #e65100;
 }

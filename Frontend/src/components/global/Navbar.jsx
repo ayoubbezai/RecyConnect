@@ -63,7 +63,7 @@ const Navbar = () => {
           className="flex items-center gap-5 cursor-pointer"
         >
       
-          <h1 className="text-3xl">RecyConnect</h1>
+          <h1 className="text-3xl font-bold">RecyConnect</h1>
         </motion.div>
       </ScrollLink>
       <div className="lg:flex gap-10 px-4 ml-17 py-2 hidden lg:visible text-primary ">
@@ -71,10 +71,10 @@ const Navbar = () => {
           to="explore"
           smooth={true}
           duration={500}
-          className={`hover:text-third border-b-2  cursor-pointer
+          className={`hover:text-secondary border-b-2  cursor-pointer
             ${
               linkClicked === "Explore"
-                ? "  border-third"
+                ? "  border-secondary"
                 : "border-background"
             }`}
           onClick={() => handleLinkClick("Explore")}
@@ -86,10 +86,10 @@ const Navbar = () => {
           to="categories"
           smooth={true}
           duration={500}
-          className={`hover:text-third border-b-2  cursor-pointer
+          className={`hover:text-secondary border-b-2  cursor-pointer
             ${
               linkClicked === "Categories"
-                ? "  border-third"
+                ? "  border-secondary"
                 : "border-background"
             }`}
           onClick={() => {
@@ -103,10 +103,10 @@ const Navbar = () => {
           to="services"
           smooth={true}
           duration={500}
-          className={`hover:text-third border-b-2  cursor-pointer
+          className={`hover:text-secondary border-b-2  cursor-pointer
             ${
               linkClicked === "Services"
-                ? "  border-third"
+                ? "  border-secondary"
                 : "border-background"
             }`}
           onClick={() => handleLinkClick("Services")}
@@ -117,10 +117,10 @@ const Navbar = () => {
           to="contactus"
           smooth={true}
           duration={500}
-          className={`hover:text-third border-b-2  cursor-pointer
+          className={`hover:text-secondary border-b-2  cursor-pointer
             ${
               linkClicked === "Contact Us"
-                ? "  border-third"
+                ? "  border-secondary"
                 : "border-background"
             }`}
           onClick={() => handleLinkClick("Contact Us")}
@@ -131,8 +131,8 @@ const Navbar = () => {
       <div className="flex justify-around items-center gap-8">
         <div className="lg:flex gap-7 hidden">
           <motion.button
-            className={`border-1 border-background hover:border-primary px-4 py-1 rounded-[10px] cursor-pointer  ${
-              linkClicked === "Login" ? "  border-primary" : "border-background"
+            className={`border-1 border-background hover:border-secondary px-4 py-1 rounded-[25px] cursor-pointer  ${
+              linkClicked === "Login" ? "  border-secondary" : "border-background"
             }`}
             {...hoverEffect}
             onClick={() => {
@@ -143,9 +143,9 @@ const Navbar = () => {
             Login
           </motion.button>
           <motion.button
-            className={`border-1 bg-secondary text-background  border-background hover:border-primary px-4 py-1 rounded-[10px] cursor-pointer ${
+            className={`border-1 bg-secondary text-background  border-background hover:border-secondary px-4 py-1 rounded-[25px] cursor-pointer ${
               linkClicked === "Signup"
-                ? "  border-primary"
+                ? "  border-secondary"
                 : "border-background"
             }`}
             {...hoverEffect}
