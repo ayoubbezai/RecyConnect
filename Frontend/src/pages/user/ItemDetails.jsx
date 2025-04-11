@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { itemsServices } from '../../services/itemsServices';
 import { FiTag, FiMapPin, FiDollarSign, FiMessageSquare } from 'react-icons/fi';
+import { commentsServices } from '../../services/commentsServices';
 
 const ItemDetails = () => {
     const { id } = useParams();
@@ -33,7 +34,7 @@ const ItemDetails = () => {
 
         try {
             setIsSubmitting(true);
-            await itemsServices.addComment(id, { content: comment });
+            await commentsServices.addComment(id,  comment );
             await handleGetItem(id);
             setComment('');
         } catch (err) {

@@ -76,6 +76,7 @@ class CommentController extends Controller
         'item_id' => 'required|exists:items,id',
 
     ]);
+    
 
 $user_id = Auth::user()->id;
 
@@ -118,7 +119,6 @@ $user_id = Auth::user()->id;
         //
 
                     $comment = Comment::findOrFail($id);
-
 
         try{
             $data = $request->validate([
