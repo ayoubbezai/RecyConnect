@@ -13,6 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->api([
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+                            App\Http\Middleware\CorsMiddleware::class,
+
+
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
