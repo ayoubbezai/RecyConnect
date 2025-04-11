@@ -256,8 +256,6 @@ try{
     }
     }
 
-    public function getOurList(){
 
-    }
 
 }
