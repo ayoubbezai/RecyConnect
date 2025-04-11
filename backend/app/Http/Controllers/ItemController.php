@@ -35,8 +35,9 @@ class ItemController extends Controller
             ? strtolower($request_query['sort_direction'] ?? 'asc')
             : 'asc';
         
-           $data = Item::query()->with("comments");
-
+$data = Item::query()->with(['comments' => function ($query) {
+    $query->latest()->limit(10);
+}]);
            //search by the title or contant
             if (!empty($request_query['search'])) {
             $search = $request_query['search'];
@@ -158,8 +159,9 @@ try{
         //
         try{
 
-$item = Item::with('comments')->findOrFail($id);
-   
+        $item = Item::with(['comments' => function ($query) {
+            $query->latest()->limit(10);
+        }])->findOrFail($id);
 
       return response()->json([
             "success" => true,
