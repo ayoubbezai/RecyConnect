@@ -13,11 +13,16 @@ import {
     
 } from 'react-icons/md';
 import { Link, useLocation } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 const SideBar = () => {
     const [isOpen, setIsOpen] = useState(true);
     const location = useLocation();
+    const navigate = useNavigate();
 
+    const handleLogoutClick=() => {
+        localStorage.removeItem("authToken")
+        navigate("/login");
+    }
     // Color variables
     const primaryColor = '#2EC4B6';
     const lightColor = '#F5FDFC';
@@ -94,6 +99,7 @@ const SideBar = () => {
                             color: textColor,
                             borderColor: accentColor
                         }}
+                        onClick={()=>handleLogoutClick()}
                     >
                         <MdLogout size={18} style={{ color: primaryColor }} />
                         Logout

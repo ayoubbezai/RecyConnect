@@ -9,7 +9,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); // To redirect the user after successful sign up
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const SignUp = () => {
 
       localStorage.setItem("authToken", response.data.token);
 
-      navigate("/items");
+      navigate("/overview");
 
     } catch (error) {
       console.error("Signup failed", error);

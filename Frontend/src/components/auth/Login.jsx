@@ -23,9 +23,8 @@ const Login = () => {
       });
 
       console.log("Logged in successfully", response.data);
-
       localStorage.setItem("authToken", response.data.token);
-      nav("/items")
+      nav("/overview")
 
     } catch (error) {
       console.error("Login failed", error);

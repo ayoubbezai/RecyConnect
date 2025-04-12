@@ -63,7 +63,6 @@ function AppContent() {
           <Route path="/our_items" element={<OurItems />} />
           <Route path="/overview" element={<OverviewTwo />} />
           <Route path="/record" element={<Record />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/tracking" element={<Tracking />} />
         </Route>
       </Routes>
