@@ -27,7 +27,7 @@ const SideBar = () => {
         { label: 'Overview', icon: <MdDashboard size={20} />, path: '/overview' },
         { label: 'Post List', icon: <MdList size={20} />, path: '/items' },
         { label: 'Our List', icon: <MdPeople size={20} />, path: '/our_items' },
-        { label: 'Chat', icon: <MdChat size={20} />, path: '/chat' },
+        { label: 'Tracking', icon: <MdChat size={20} />, path: '/tracking' },
         { label: 'Record', icon: <MdHistory size={20} />, path: '/record' },
         { label: 'Profile', icon: <MdAccountCircle size={20} />, path: '/profile' }
     ];
