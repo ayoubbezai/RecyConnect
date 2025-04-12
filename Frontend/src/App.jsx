@@ -10,7 +10,7 @@ import Items from "./pages/user/Items";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import ProtectedRoute from "./routes/productedRoute";
-import AuthProvider from "./context/AuthContext";
+import AuthProvider from "./components/landingPage/context/AuthContext";
 import OurItems from "./pages/user/OurItems";
 import Overview from "./pages/user/Overview";
 import Record from "./pages/user/Record";
@@ -20,6 +20,7 @@ import ItemDetails from "./pages/user/ItemDetails";
 import ServicesSection from "./components/landingPage/serviceSection/ServiceSection";
 import ContactUsSection from "./components/landingPage/contactUsSection/ContactUsSection";
 import Footer from "./components/landingPage/footerSection/Footer";
+import Tracking from "./pages/user/Tracking";
 
 function Home() {
   return (
@@ -29,7 +30,7 @@ function Home() {
       <ServicesSection />
       <ContactUsSection />
       <Footer />
-      
+
     </>
   );
 }
@@ -62,6 +63,7 @@ function AppContent() {
           <Route path="/overview" element={<Overview />} />
           <Route path="/record" element={<Record />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/tracking" element={<Tracking />} />
         </Route>
       </Routes>
     </AuthProvider>

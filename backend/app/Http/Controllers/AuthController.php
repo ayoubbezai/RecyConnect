@@ -121,13 +121,7 @@ class AuthController extends Controller
            return response()->json([
             "success" => true,
             "message" => "User logged in successfully.",
-            "user" => [
-                "id" => $currentUser->id,
-                "name" => $currentUser->name,
-                "email" => $currentUser->email,
-                "role" => $currentUser->role,
-                "is_verfied" => $currentUser->is_verfied,
-            ],
+            "user" => $currentUser,
         ], 200);
 
         }catch(\Exception $e){
