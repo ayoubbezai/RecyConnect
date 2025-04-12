@@ -6,7 +6,7 @@ const WithSidebar = ({ children }) => {
     return (
         <div className='flex'>
             <Sidebar />
-            <div className="max-w-6xl bg-gray-50 h-screen overflow-y-auto mx-auto p-6 flex-1">
+            <div className=" bg-gray-50 h-screen overflow-y-auto mx-auto p-6 flex-1">
                 {children}
             </div>
         </div>

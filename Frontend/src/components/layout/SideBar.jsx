@@ -26,17 +26,16 @@ const SideBar = () => {
     const sidebarLinks = [
         { label: 'Overview', icon: <MdDashboard size={20} />, path: '/overview' },
         { label: 'Post List', icon: <MdList size={20} />, path: '/items' },
-        { label: 'Our List', icon: <MdPeople size={20} />, path: '/our_items' },
         { label: 'Tracking', icon: <MdChat size={20} />, path: '/tracking' },
         { label: 'Record', icon: <MdHistory size={20} />, path: '/record' },
-        { label: 'Profile', icon: <MdAccountCircle size={20} />, path: '/profile' }
+        { label: 'Profile', icon: <MdPeople size={20} />, path: '/our_items' },
     ];
 
     const isActive = (path) => location.pathname === path;
 
     return (
         <div
-            className={`${isOpen ? 'w-52' : 'w-16'} min-h-screen flex flex-col justify-between transition-all duration-300 max-h-screen`}
+            className={`${isOpen ? 'w-52' : 'w-16'} min-h-screen flex flex-col justify-between transition-all  duration-300 max-h-screen`}
             style={{ backgroundColor: 'white', borderRight: '1px solid #E5F5F3' }}
         >
             {/* Header */}

@@ -21,6 +21,7 @@ import ServicesSection from "./components/landingPage/serviceSection/ServiceSect
 import ContactUsSection from "./components/landingPage/contactUsSection/ContactUsSection";
 import Footer from "./components/landingPage/footerSection/Footer";
 import Tracking from "./pages/user/Tracking";
+import OverviewTwo from "./pages/user/OverviewTwo";
 
 function Home() {
   return (
@@ -60,7 +61,7 @@ function AppContent() {
           <Route path="/items" element={<Items />} />
           <Route path="/items/:id" element={<ItemDetails />} />
           <Route path="/our_items" element={<OurItems />} />
-          <Route path="/overview" element={<Overview />} />
+          <Route path="/overview" element={<OverviewTwo />} />
           <Route path="/record" element={<Record />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/tracking" element={<Tracking />} />
