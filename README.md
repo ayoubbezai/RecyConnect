@@ -1,7 +1,7 @@
 ﻿# RecyConnect
 # ♻️ RecyConnect
 
-RecyConnect is a smart digital platform that connects companies with leftover materials to recyclers, upcyclers, NGOs, and creators. Our mission is to turn industrial waste into opportunity, enabling a circular economy through AI-powered matchmaking and real-time coordination.
+RecyConnect is a smart digital platform that connects companies with leftover materials and surplus to recyclers, upcyclers, NGOs, and creators. Our mission is to turn industrial waste into opportunity, enabling a circular economy through AI-powered matchmaking and real-time coordination.
 
 ---
 
